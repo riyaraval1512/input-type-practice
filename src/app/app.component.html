@@ -1,0 +1,35 @@
+<h1>{{RadioTitle}}</h1>
+<input type="radio" value="male" name="radio" (change)="SelectedRadio($event)">Male
+<input type="radio" value="female" name="radio" (change)="SelectedRadio($event)">Female
+<p>{{radioname}}</p>
+
+<h1>{{CheckboxTitle}}</h1>
+<label *ngFor="let hobbies of HobbiesArray">
+  <input type="checkbox" name="checkbox" [checked]="!isCheck" (change)="SelectedCheckBox($event)" value={{hobbies}}>{{hobbies}}
+  <br>
+</label>
+<div *ngFor="let item of checkboxname">{{item}}</div>
+
+<h1>{{CheckboxObjTitle}}</h1>
+<label *ngFor="let hobbiesobj of HobbiesobjArray">
+  <input type="checkbox" name="checkbox" [checked]="!isCheck" (change)="SelectedObjCheckBox($event,hobbiesobj)" value={{hobbiesobj.name}}>{{hobbiesobj.name}}
+  <br>
+</label>
+<label *ngFor="let item of selectedcheckobjhobby">
+  <p>{{item | json}}</p>
+</label>
+
+
+<h1>{{DropdownTitle}}</h1>
+<select (change)="SelectedDd($event)">
+  <option>Select your Hobby</option>
+  <option *ngFor="let hobby of HobbiesArray" value={{hobby}}>{{hobby}}</option>
+</select>
+<p>{{dropdownname}}</p>
+
+<h1>{{DropdownObjTitle}}</h1>
+<select (change)="SelectedObjDd($event)">
+  <option>Select your Hobby</option>
+  <option *ngFor="let hobbyobj of HobbiesobjArray" value={{hobbyobj.name}}>{{hobbyobj.name}}</option>
+</select>
+<p>{{dropdownobjname.id}}  {{dropdownobjname.name}}</p>
